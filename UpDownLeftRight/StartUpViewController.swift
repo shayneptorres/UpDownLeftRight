@@ -13,10 +13,11 @@ class StartUpViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var gameTitle: UIImageView!
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destination = segue.destinationViewController as? UIViewController
+        let destination = segue.destinationViewController as UIViewController
         
-        if let gvc = destination as? GameViewController {
+        if let _ = destination as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {
                 case "Begin Game": break

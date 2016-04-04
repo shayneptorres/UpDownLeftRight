@@ -21,6 +21,9 @@ class GameViewController: UIViewController {
     var gameTimer = NSTimer()
     var correctSwipes: Int = 0
     var incorrectSwipes: Int = 0
+    var ratio: Int = 0
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     // Swipe Recognizers
     override func viewDidLoad(){
@@ -69,11 +72,23 @@ class GameViewController: UIViewController {
     }
     
     // Signals the next View
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Game Over" {
+            _ = segue.destinationViewController as? GameOverViewController
+            defaults.setInteger(correctSwipes, forKey: "correctSwipes")
+            defaults.setInteger(incorrectSwipes, forKey: "incorrectSwipes")
+            defaults.setInteger(ratio, forKey: "ratio")
+        }
+    }
+    
     func goToNextView(){
         performSegueWithIdentifier("Game Over", sender: self)
     }
     
     @IBAction func startGame(sender: UIButton) {
+        correctSwipes = 0
+        incorrectSwipes = 0
         startGameButton.hidden = true
         generateNextDirection()
     }
@@ -97,7 +112,7 @@ class GameViewController: UIViewController {
     // Timer for direction
     func updateMiniTimer(){
         miniTimerCount++
-        if miniTimerCount > 5 {
+        if miniTimerCount > 1 {
             miniTimer.invalidate()
             generateNextDirection()
         }
