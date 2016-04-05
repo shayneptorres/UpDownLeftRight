@@ -13,7 +13,6 @@ class GameOverViewController: GameViewController {
     @IBOutlet weak var finalRatioDisplay: UILabel!
     @IBOutlet weak var finalCorrectCountDisplay: UILabel!
     @IBOutlet weak var finalIncorrectCountDisplay: UILabel!
-    @IBOutlet weak var resultsButton: UIButton!
     var finalCorrectCount: Float = 0
     var finalIncorrectCount: Float = 0
     var finalRatio: Float = 0
@@ -44,6 +43,7 @@ brief instructions
         finalCorrectCountDisplay.hidden = false
         finalIncorrectCountDisplay.hidden = false
         finalRatioDisplay.hidden = false
+        
         let totalSwipes = defaults.floatForKey("correctSwipes") + defaults.floatForKey("incorrectSwipes")
         finalCorrectCount = defaults.floatForKey("correctSwipes")
         finalIncorrectCount = defaults.floatForKey("incorrectSwipes")
@@ -51,10 +51,10 @@ brief instructions
         finalCorrectCountDisplay.text = "Correct: \(finalCorrectCount)"
         finalIncorrectCountDisplay.text = "Incorrect: \(finalIncorrectCount)"
         
-        if(finalIncorrectCount != 0){
+        if(totalSwipes != 0){
             finalRatioDisplay.text = "Ratio: \(finalCorrectCount/totalSwipes)"
         } else {
-            finalRatioDisplay.text = "Ratio: Null"
+            finalRatioDisplay.text = "Ratio: 0"
         }
     }
     

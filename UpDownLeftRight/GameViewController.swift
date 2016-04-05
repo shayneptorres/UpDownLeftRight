@@ -17,6 +17,8 @@ class GameViewController: UIViewController {
     var swipeDirection: String = ""
     var miniTimerCount: Int = 0
     var gameTimerCount: Int = 0
+    var startUpTimerCount: Int = 3
+    var startUpTimer = NSTimer()
     var miniTimer = NSTimer()
     var gameTimer = NSTimer()
     var correctSwipes: Int = 0
@@ -60,9 +62,11 @@ class GameViewController: UIViewController {
         if swipeDirection == directionDisplay.text {
             correctSwipes++
             correctSwipeCountDisplay.text = "Correct: \(correctSwipes)"
+            generateNextDirection()
         } else {
             incorrectSwipes++
             incorrectSwipeCountDisplay.text = "Incorrect: \(incorrectSwipes)"
+            generateNextDirection()
         }
     }
     
@@ -86,15 +90,23 @@ class GameViewController: UIViewController {
         performSegueWithIdentifier("Game Over", sender: self)
     }
     
-    @IBAction func startGame(sender: UIButton) {
+    
+    @IBAction func startUpCounter(sender: UIButton) {
+        startGameButton.hidden = true
+        directionDisplay.text = "\(startUpTimerCount)"
+        startUpTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateStartUpTimer", userInfo: nil, repeats: true)
+    }
+    
+    func startGame() {
         correctSwipes = 0
         incorrectSwipes = 0
-        startGameButton.hidden = true
         generateNextDirection()
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
     }
     
     // Displays the next Swipe direction
     func generateNextDirection(){
+        miniTimer.invalidate()
             let randInt = String(arc4random_uniform(5))
                 if randInt == "1" {
                     directionDisplay.text = "UP"
@@ -105,8 +117,17 @@ class GameViewController: UIViewController {
                 } else if randInt == "4" {
                     directionDisplay.text = "RIGHT"
                 }
-                miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
-                gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
+                miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
+    }
+    
+    // Timer for game startup
+    func updateStartUpTimer(){
+        startUpTimerCount--
+        directionDisplay.text = "\(startUpTimerCount)"
+        if startUpTimerCount == 0 {
+            startUpTimer.invalidate()
+            startGame()
+        }
     }
     
     // Timer for direction
@@ -121,7 +142,7 @@ class GameViewController: UIViewController {
     // Timer for game
     func updateGameTimer(){
         gameTimerCount++
-        if gameTimerCount > 30 {
+        if gameTimerCount > 60 {
             gameTimer.invalidate()
             miniTimer.invalidate()
             gameTimerCount = 0
