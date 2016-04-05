@@ -14,9 +14,9 @@ class GameOverViewController: GameViewController {
     @IBOutlet weak var finalCorrectCountDisplay: UILabel!
     @IBOutlet weak var finalIncorrectCountDisplay: UILabel!
     @IBOutlet weak var resultsButton: UIButton!
-    var finalCorrectCount: Int = 0
-    var finalIncorrectCount: Int = 0
-    var finalRatio: Int = 0
+    var finalCorrectCount: Float = 0
+    var finalIncorrectCount: Float = 0
+    var finalRatio: Float = 0
     private let cScore = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -32,15 +32,30 @@ class GameOverViewController: GameViewController {
         }
     }
  
+/*
 
+handle zero user input error
+slow down the instructions (e.g. "left", "right", etc)
+signal text change so that back to back matching commands are obvious
+brief instructions
+
+*/
     @IBAction func showResults() {
         finalCorrectCountDisplay.hidden = false
         finalIncorrectCountDisplay.hidden = false
         finalRatioDisplay.hidden = false
+        let totalSwipes = defaults.floatForKey("correctSwipes") + defaults.floatForKey("incorrectSwipes")
+        finalCorrectCount = defaults.floatForKey("correctSwipes")
+        finalIncorrectCount = defaults.floatForKey("incorrectSwipes")
         
-        finalCorrectCountDisplay.text = "Correct: \(defaults.integerForKey("correctSwipes"))"
-        finalIncorrectCountDisplay.text = "Incorrect: \(defaults.integerForKey("incorrectSwipes"))"
-        finalRatioDisplay.text = "Ratio: \(defaults.integerForKey("correctSwipes")/defaults.integerForKey("incorrectSwipes") + defaults.integerForKey("correctSwipes"))"
+        finalCorrectCountDisplay.text = "Correct: \(finalCorrectCount)"
+        finalIncorrectCountDisplay.text = "Incorrect: \(finalIncorrectCount)"
+        
+        if(finalIncorrectCount != 0){
+            finalRatioDisplay.text = "Ratio: \(finalCorrectCount/totalSwipes)"
+        } else {
+            finalRatioDisplay.text = "Ratio: Null"
+        }
     }
     
     @IBAction func resetGame(sender: UIButton) {
