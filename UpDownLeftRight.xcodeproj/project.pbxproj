@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		B84B673C1C8E4492004D60D9 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverViewController.swift; path = ../GameOverViewController.swift; sourceTree = "<group>"; };
 		B8515E4B1C8F7BC400F2B258 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstructionViewController.swift; path = ../InstructionViewController.swift; sourceTree = "<group>"; };
 		B86BED5D1C8D67CA00AAAB12 /* UpDownLeftRight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpDownLeftRight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86BED601C8D67CA00AAAB12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86BED621C8D67CA00AAAB12 /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +44,6 @@
 		B86BED541C8D67CA00AAAB12 = {
 			isa = PBXGroup;
 			children = (
-				B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */,
 				B86BED5F1C8D67CA00AAAB12 /* UpDownLeftRight */,
 				B86BED5E1C8D67CA00AAAB12 /* Products */,
 			);
@@ -61,6 +60,7 @@
 		B86BED5F1C8D67CA00AAAB12 /* UpDownLeftRight */ = {
 			isa = PBXGroup;
 			children = (
+				B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */,
 				B84B673C1C8E4492004D60D9 /* GameOverViewController.swift */,
 				B86BED621C8D67CA00AAAB12 /* StartUpViewController.swift */,
 				B8515E4B1C8F7BC400F2B258 /* GameViewController.swift */,

@@ -9,21 +9,28 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    // Variables
+    // Outlets
+    @IBOutlet weak var gameClock: UILabel!
     @IBOutlet weak var directionDisplay: UILabel!
     @IBOutlet weak var correctSwipeCountDisplay: UILabel!
     @IBOutlet weak var incorrectSwipeCountDisplay: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
+    
+    // Variables
     var swipeDirection: String = ""
     var miniTimerCount: Int = 0
-    var gameTimerCount: Int = 0
+    var gameTimerCount: Int = 30
     var startUpTimerCount: Int = 3
-    var startUpTimer = NSTimer()
-    var miniTimer = NSTimer()
-    var gameTimer = NSTimer()
     var correctSwipes: Int = 0
     var incorrectSwipes: Int = 0
     var ratio: Int = 0
+    
+    // Timers
+    var startUpTimer = NSTimer()
+    var miniTimer = NSTimer()
+    var gameTimer = NSTimer()
+    
+    
     
     var defaults = NSUserDefaults.standardUserDefaults()
     
@@ -62,10 +69,12 @@ class GameViewController: UIViewController {
         if swipeDirection == directionDisplay.text {
             correctSwipes++
             correctSwipeCountDisplay.text = "Correct: \(correctSwipes)"
+            fadeOutDirection()
             generateNextDirection()
         } else {
             incorrectSwipes++
             incorrectSwipeCountDisplay.text = "Incorrect: \(incorrectSwipes)"
+            fadeOutDirection()
             generateNextDirection()
         }
     }
@@ -73,6 +82,14 @@ class GameViewController: UIViewController {
     // Game Functions
     func gameOver(){
         goToNextView()
+    }
+    
+    func fadeOutDirection(){
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionDisplay.alpha = 0.0}, completion: nil)
+    }
+    
+    func fadeInDirection(){
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionDisplay.alpha = 1.0}, completion: nil)
     }
     
     // Signals the next View
@@ -98,14 +115,16 @@ class GameViewController: UIViewController {
     }
     
     func startGame() {
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
         correctSwipes = 0
         incorrectSwipes = 0
         generateNextDirection()
-        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
     }
+
     
     // Displays the next Swipe direction
     func generateNextDirection(){
+        fadeInDirection()
         miniTimer.invalidate()
             let randInt = String(arc4random_uniform(5))
                 if randInt == "1" {
@@ -141,11 +160,12 @@ class GameViewController: UIViewController {
     
     // Timer for game
     func updateGameTimer(){
-        gameTimerCount++
-        if gameTimerCount > 60 {
+        gameTimerCount--
+        gameClock.text = "Time: \(gameTimerCount)"
+        if gameTimerCount == 0 {
             gameTimer.invalidate()
             miniTimer.invalidate()
-            gameTimerCount = 0
+            gameTimerCount = 30
             gameOver()
         }
     }
