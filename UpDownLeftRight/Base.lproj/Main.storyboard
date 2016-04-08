@@ -89,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="tRa-lE-mHe"/>
             </objects>
-            <point key="canvasLocation" x="118" y="230"/>
+            <point key="canvasLocation" x="118" y="234"/>
         </scene>
         <!--Instruction View Controller-->
         <scene sceneID="LYP-rt-tBF">
@@ -119,9 +119,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG1-4a-FOG">
-                                        <rect key="frame" x="-93" y="36" width="596" height="122"/>
+                                        <rect key="frame" x="-141" y="36" width="644" height="122"/>
                                         <string key="text">1.) Press play and wait for direction to swipe
-2.) When the direction appears on the top of the screen swipe in that direction
+2.) When the direction arrow appears on the top of the screen swipe in that direction
 3.) Correct swipes add points, incorrect swipes deduct points
 4.) You have 30 seconds to get as many points as possible
 </string>
@@ -228,6 +228,12 @@
                                     <action selector="startUpCounter:" destination="lER-F2-S0W" eventType="touchUpInside" id="2xN-WJ-Kg3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meX-jq-3NF">
+                                <rect key="frame" x="201" y="376" width="199" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-WM-ozn">
                                 <rect key="frame" x="208" y="295" width="183" height="73"/>
                                 <constraints>
@@ -245,15 +251,19 @@
                                     <constraint firstAttribute="height" constant="209" id="gKl-rY-E0A"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meX-jq-3NF">
-                                <rect key="frame" x="201" y="376" width="199" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiplier:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0L-KP-xM8">
+                                <rect key="frame" x="249" y="416" width="124" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="124" id="A7P-6n-4ro"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="v0L-KP-xM8" firstAttribute="trailing" secondItem="Kmv-cd-xg5" secondAttribute="trailing" id="40d-pt-rRV"/>
                             <constraint firstAttribute="bottom" secondItem="i6k-MJ-rRJ" secondAttribute="bottom" constant="20" symbolic="YES" id="4c0-yT-WaD"/>
                             <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="JSM-K8-EX8" secondAttribute="bottom" constant="8" symbolic="YES" id="829-N6-S4l"/>
                             <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" id="8Rx-ie-nOW"/>
@@ -269,6 +279,8 @@
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="top" secondItem="OSn-y5-k5w" secondAttribute="bottom" constant="58" id="b13-kB-1yx"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="bottom" secondItem="R78-gL-wom" secondAttribute="top" id="huh-85-Uqi"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="hvb-Ye-jfA"/>
+                            <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="v0L-KP-xM8" secondAttribute="bottom" constant="67" id="ieB-wj-Xsj"/>
+                            <constraint firstItem="v0L-KP-xM8" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="8" symbolic="YES" id="k0W-9j-HJg"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="top" secondItem="ixL-un-PC2" secondAttribute="top" id="n1f-1d-MDV"/>
                             <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="xec-u5-ysu"/>
                         </constraints>
@@ -277,6 +289,7 @@
                         <outlet property="directionDisplay" destination="Kmv-cd-xg5" id="ld3-yM-bbb"/>
                         <outlet property="directionImageDisplay" destination="JSM-K8-EX8" id="yna-n9-SQN"/>
                         <outlet property="gameClock" destination="meX-jq-3NF" id="qA7-Vy-mbp"/>
+                        <outlet property="multiplierDisplay" destination="v0L-KP-xM8" id="kXq-pW-LOU"/>
                         <outlet property="pointsDisplay" destination="J6P-WM-ozn" id="iaP-GL-baM"/>
                         <outlet property="startGameButton" destination="i6k-MJ-rRJ" id="G62-Q5-kdH"/>
                         <segue destination="kcA-5w-O34" kind="show" identifier="Game Over" id="Ylc-ip-iEB"/>
@@ -409,6 +422,6 @@
         <image name="sqr1" width="314" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ycJ-p2-Iv4"/>
+        <segue reference="B7W-KB-AKh"/>
     </inferredMetricsTieBreakers>
 </document>

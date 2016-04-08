@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var pointsDisplay: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var directionImageDisplay: UIImageView!
+    @IBOutlet weak var multiplierDisplay: UILabel!
     
     // Variables
     var swipeDirection: String = ""
@@ -25,6 +26,7 @@ class GameViewController: UIViewController {
     var incorrectSwipes: Int = 0
     var totalPoints: Int = 0
     var correctStreak: Int = 0
+    var multiplier: Int = 1
     
     // Timers
     var startUpTimer = NSTimer()
@@ -46,6 +48,7 @@ class GameViewController: UIViewController {
     // Swipe Recognizers
     override func viewDidLoad(){
         super.viewDidLoad()
+        multiplierDisplay.text = "Multiplier: x1"
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         leftSwipe.direction = .Left
         self.view!.addGestureRecognizer(leftSwipe)
@@ -80,6 +83,7 @@ class GameViewController: UIViewController {
             correctStreak++
             if correctStreak > 10 {
                 totalPoints += 500
+                multiplierDisplay.text = "Multiplier: x5"
             }
             totalPoints += 100
             pointsDisplay.text = "\(totalPoints)"
@@ -88,6 +92,7 @@ class GameViewController: UIViewController {
         } else {
             incorrectSwipes++
             correctStreak = 0
+            multiplierDisplay.text = "Multiplier: x1"
             totalPoints -= 100
             pointsDisplay.text = "\(totalPoints)"
             fadeOutDirection()
