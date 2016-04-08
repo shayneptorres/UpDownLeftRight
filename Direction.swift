@@ -17,4 +17,9 @@ class Direction {
         self.value = ""
         self.image = UIImage(named: "sq3")!
     }
+    
+    init(direction: String, imageName: String){
+        self.value = direction
+        self.image = UIImage(named: "\(imageName)")!
+    }
 }

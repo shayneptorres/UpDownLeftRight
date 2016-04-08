@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var directionDisplay: UILabel!
     @IBOutlet weak var pointsDisplay: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var directionImageDisplay: UIImageView!
     
     // Variables
     var swipeDirection: String = ""
@@ -23,12 +24,20 @@ class GameViewController: UIViewController {
     var correctSwipes: Int = 0
     var incorrectSwipes: Int = 0
     var totalPoints: Int = 0
-    var ratio: Int = 0
+    var correctStreak: Int = 0
     
     // Timers
     var startUpTimer = NSTimer()
     var miniTimer = NSTimer()
     var gameTimer = NSTimer()
+    
+    // Direction Objects
+    var currentDirection = Direction()
+    var upObject = Direction(direction: "UP", imageName: "upArrow")
+    var downObject = Direction(direction: "DOWN", imageName: "downArrow")
+    var leftObject = Direction(direction: "LEFT", imageName: "leftArrow")
+    var rightObject = Direction(direction: "RIGHT", imageName: "rightArrow")
+    
     
     
     
@@ -68,12 +77,17 @@ class GameViewController: UIViewController {
         
         if swipeDirection == directionDisplay.text {
             correctSwipes++
+            correctStreak++
+            if correctStreak > 10 {
+                totalPoints += 500
+            }
             totalPoints += 100
             pointsDisplay.text = "\(totalPoints)"
             fadeOutDirection()
             generateNextDirection()
         } else {
             incorrectSwipes++
+            correctStreak = 0
             totalPoints -= 100
             pointsDisplay.text = "\(totalPoints)"
             fadeOutDirection()
@@ -101,7 +115,6 @@ class GameViewController: UIViewController {
             _ = segue.destinationViewController as? GameOverViewController
             defaults.setInteger(correctSwipes, forKey: "correctSwipes")
             defaults.setInteger(incorrectSwipes, forKey: "incorrectSwipes")
-            defaults.setInteger(ratio, forKey: "ratio")
             defaults.setInteger(totalPoints, forKey: "totalPoints")
         }
     }
@@ -123,23 +136,31 @@ class GameViewController: UIViewController {
         incorrectSwipes = 0
         generateNextDirection()
     }
-
+    
     
     // Displays the next Swipe direction
     func generateNextDirection(){
         fadeInDirection()
         miniTimer.invalidate()
-            let randInt = String(arc4random_uniform(5))
-                if randInt == "1" {
-                    directionDisplay.text = "UP"
-                } else if randInt == "2" {
-                    directionDisplay.text = "DOWN"
-                } else if randInt == "3" {
-                    directionDisplay.text = "LEFT"
-                } else if randInt == "4" {
-                    directionDisplay.text = "RIGHT"
-                }
-                miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
+        let randInt = String(arc4random_uniform(5))
+        if randInt == "1" {
+            currentDirection = upObject
+            directionDisplay.text = currentDirection.value
+            directionImageDisplay.image = currentDirection.image
+        } else if randInt == "2" {
+            currentDirection = downObject
+            directionDisplay.text = currentDirection.value
+            directionImageDisplay.image = currentDirection.image
+        } else if randInt == "3" {
+            currentDirection = leftObject
+            directionDisplay.text = currentDirection.value
+            directionImageDisplay.image = currentDirection.image
+        } else if randInt == "4" {
+            currentDirection = rightObject
+            directionDisplay.text = currentDirection.value
+            directionImageDisplay.image = currentDirection.image
+        }
+        miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
     }
     
     // Timer for game startup

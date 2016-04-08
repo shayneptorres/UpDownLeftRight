@@ -217,8 +217,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6k-MJ-rRJ">
                                 <rect key="frame" x="166" y="504" width="269" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="cmJ-MX-Ifw"/>
-                                    <constraint firstAttribute="width" constant="269" id="wGy-cY-M2w"/>
+                                    <constraint firstAttribute="width" constant="269" id="HMk-k4-W7j"/>
+                                    <constraint firstAttribute="height" constant="76" id="Ty0-TO-1G0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start Game" backgroundImage="blueButton">
@@ -228,43 +228,54 @@
                                     <action selector="startUpCounter:" destination="lER-F2-S0W" eventType="touchUpInside" id="2xN-WJ-Kg3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meX-jq-3NF">
-                                <rect key="frame" x="201" y="182" width="199" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-WM-ozn">
-                                <rect key="frame" x="209" y="101" width="183" height="73"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-WM-ozn">
+                                <rect key="frame" x="208" y="295" width="183" height="73"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="2bQ-Dx-dNi"/>
-                                    <constraint firstAttribute="width" constant="183" id="nW9-78-YY4"/>
+                                    <constraint firstAttribute="height" constant="73" id="dHA-Rv-xcC"/>
+                                    <constraint firstAttribute="width" constant="183" id="x1P-2q-bt2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sq1" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-K8-EX8">
+                                <rect key="frame" x="172" y="78" width="256" height="209"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="I5j-tR-DZg"/>
+                                    <constraint firstAttribute="height" constant="209" id="gKl-rY-E0A"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meX-jq-3NF">
+                                <rect key="frame" x="201" y="376" width="199" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="i6k-MJ-rRJ" secondAttribute="bottom" constant="20" symbolic="YES" id="DzL-oI-6aR"/>
-                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" id="Hle-R5-y7h"/>
+                            <constraint firstAttribute="bottom" secondItem="i6k-MJ-rRJ" secondAttribute="bottom" constant="20" symbolic="YES" id="4c0-yT-WaD"/>
+                            <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="JSM-K8-EX8" secondAttribute="bottom" constant="8" symbolic="YES" id="829-N6-S4l"/>
+                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" id="8Rx-ie-nOW"/>
+                            <constraint firstItem="JSM-K8-EX8" firstAttribute="centerX" secondItem="Kmv-cd-xg5" secondAttribute="centerX" id="DCF-WL-t98"/>
+                            <constraint firstItem="i6k-MJ-rRJ" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="DZ9-bT-ayP"/>
                             <constraint firstItem="Kmv-cd-xg5" firstAttribute="centerX" secondItem="ixL-un-PC2" secondAttribute="centerX" id="IrZ-s4-3kx"/>
                             <constraint firstItem="Kmv-cd-xg5" firstAttribute="top" secondItem="OSn-y5-k5w" secondAttribute="bottom" id="MYv-RS-MHF"/>
+                            <constraint firstItem="meX-jq-3NF" firstAttribute="leading" secondItem="uYx-VC-H1C" secondAttribute="trailing" constant="-399" id="TJb-hc-Uce"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="leading" secondItem="ixL-un-PC2" secondAttribute="leading" id="XVg-HQ-xVw"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="Kmv-cd-xg5" secondAttribute="bottom" constant="8" symbolic="YES" id="Y7A-Ss-ID9"/>
+                            <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="96" id="YF5-Nb-uvn"/>
+                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" symbolic="YES" id="Z9K-Ld-3lm"/>
                             <constraint firstAttribute="trailing" secondItem="uYx-VC-H1C" secondAttribute="trailing" id="aWr-9V-cBS"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="Kmv-cd-xg5" secondAttribute="centerX" id="biz-WO-WZI"/>
+                            <constraint firstItem="JSM-K8-EX8" firstAttribute="top" secondItem="OSn-y5-k5w" secondAttribute="bottom" constant="58" id="b13-kB-1yx"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="bottom" secondItem="R78-gL-wom" secondAttribute="top" id="huh-85-Uqi"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="jaI-n1-gRu"/>
+                            <constraint firstItem="JSM-K8-EX8" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="hvb-Ye-jfA"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="top" secondItem="ixL-un-PC2" secondAttribute="top" id="n1f-1d-MDV"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="i6k-MJ-rRJ" secondAttribute="centerX" id="swp-2w-67y"/>
-                            <constraint firstItem="meX-jq-3NF" firstAttribute="leading" secondItem="uYx-VC-H1C" secondAttribute="trailing" constant="-399" id="u4l-oM-1o2"/>
-                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" symbolic="YES" id="udH-PR-5RJ"/>
+                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="xec-u5-ysu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="directionDisplay" destination="Kmv-cd-xg5" id="ld3-yM-bbb"/>
+                        <outlet property="directionImageDisplay" destination="JSM-K8-EX8" id="yna-n9-SQN"/>
                         <outlet property="gameClock" destination="meX-jq-3NF" id="qA7-Vy-mbp"/>
                         <outlet property="pointsDisplay" destination="J6P-WM-ozn" id="iaP-GL-baM"/>
                         <outlet property="startGameButton" destination="i6k-MJ-rRJ" id="G62-Q5-kdH"/>
@@ -394,6 +405,7 @@
         <image name="Up-Down" width="469" height="102"/>
         <image name="blueButton" width="542" height="224"/>
         <image name="pGradient3-1" width="908" height="2286"/>
+        <image name="sq1" width="418" height="360"/>
         <image name="sqr1" width="314" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
