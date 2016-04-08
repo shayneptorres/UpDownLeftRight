@@ -15,6 +15,7 @@
 		B86BED661C8D67CA00AAAB12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86BED641C8D67CA00AAAB12 /* Main.storyboard */; };
 		B86BED681C8D67CA00AAAB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86BED671C8D67CA00AAAB12 /* Assets.xcassets */; };
 		B86BED6B1C8D67CA00AAAB12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86BED691C8D67CA00AAAB12 /* LaunchScreen.storyboard */; };
+		B8DF25961CB85E040029C343 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF25951CB85E040029C343 /* Direction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B86BED671C8D67CA00AAAB12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B86BED6A1C8D67CA00AAAB12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B86BED6C1C8D67CA00AAAB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8DF25951CB85E040029C343 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Direction.swift; path = ../Direction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,11 @@
 		B86BED5F1C8D67CA00AAAB12 /* UpDownLeftRight */ = {
 			isa = PBXGroup;
 			children = (
-				B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */,
-				B84B673C1C8E4492004D60D9 /* GameOverViewController.swift */,
 				B86BED621C8D67CA00AAAB12 /* StartUpViewController.swift */,
+				B85E91B31CB40C5F006EA330 /* InstructionViewController.swift */,
 				B8515E4B1C8F7BC400F2B258 /* GameViewController.swift */,
+				B84B673C1C8E4492004D60D9 /* GameOverViewController.swift */,
+				B8DF25951CB85E040029C343 /* Direction.swift */,
 				B86BED641C8D67CA00AAAB12 /* Main.storyboard */,
 				B86BED671C8D67CA00AAAB12 /* Assets.xcassets */,
 				B86BED721C8D67D700AAAB12 /* Supporting Files */,
@@ -158,6 +161,7 @@
 				B86BED631C8D67CA00AAAB12 /* StartUpViewController.swift in Sources */,
 				B84B673D1C8E4492004D60D9 /* GameOverViewController.swift in Sources */,
 				B86BED611C8D67CA00AAAB12 /* AppDelegate.swift in Sources */,
+				B8DF25961CB85E040029C343 /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

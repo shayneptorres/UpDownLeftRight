@@ -10,9 +10,9 @@ import UIKit
 
 class GameOverViewController: GameViewController {
 
-    @IBOutlet weak var finalRatioDisplay: UILabel!
-    @IBOutlet weak var finalCorrectCountDisplay: UILabel!
-    @IBOutlet weak var finalIncorrectCountDisplay: UILabel!
+    @IBOutlet weak var finalPointsLabel: UILabel!
+    @IBOutlet weak var finalPointsDisplay: UILabel!
+    var finalPointsTotal: Int = 0
     var finalCorrectCount: Float = 0
     var finalIncorrectCount: Float = 0
     var finalRatio: Float = 0
@@ -39,23 +39,13 @@ signal text change so that back to back matching commands are obvious
 brief instructions
 
 */
-    @IBAction func showResults() {
-        finalCorrectCountDisplay.hidden = false
-        finalIncorrectCountDisplay.hidden = false
-        finalRatioDisplay.hidden = false
-        
+    func showResults() {
+        finalPointsDisplay.hidden = false
         let totalSwipes = defaults.floatForKey("correctSwipes") + defaults.floatForKey("incorrectSwipes")
         finalCorrectCount = defaults.floatForKey("correctSwipes")
         finalIncorrectCount = defaults.floatForKey("incorrectSwipes")
-        
-        finalCorrectCountDisplay.text = "Correct: \(finalCorrectCount)"
-        finalIncorrectCountDisplay.text = "Incorrect: \(finalIncorrectCount)"
-        
-        if(totalSwipes != 0){
-            finalRatioDisplay.text = "Ratio: \(finalCorrectCount/totalSwipes)"
-        } else {
-            finalRatioDisplay.text = "Ratio: 0"
-        }
+        finalPointsTotal = defaults.integerForKey("totalPoints")
+        finalPointsDisplay.text = "\(finalPointsTotal)"
     }
     
     @IBAction func resetGame(sender: UIButton) {

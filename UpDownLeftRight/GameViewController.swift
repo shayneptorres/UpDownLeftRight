@@ -12,8 +12,7 @@ class GameViewController: UIViewController {
     // Outlets
     @IBOutlet weak var gameClock: UILabel!
     @IBOutlet weak var directionDisplay: UILabel!
-    @IBOutlet weak var correctSwipeCountDisplay: UILabel!
-    @IBOutlet weak var incorrectSwipeCountDisplay: UILabel!
+    @IBOutlet weak var pointsDisplay: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
     
     // Variables
@@ -23,6 +22,7 @@ class GameViewController: UIViewController {
     var startUpTimerCount: Int = 3
     var correctSwipes: Int = 0
     var incorrectSwipes: Int = 0
+    var totalPoints: Int = 0
     var ratio: Int = 0
     
     // Timers
@@ -68,12 +68,14 @@ class GameViewController: UIViewController {
         
         if swipeDirection == directionDisplay.text {
             correctSwipes++
-            correctSwipeCountDisplay.text = "Correct: \(correctSwipes)"
+            totalPoints += 100
+            pointsDisplay.text = "\(totalPoints)"
             fadeOutDirection()
             generateNextDirection()
         } else {
             incorrectSwipes++
-            incorrectSwipeCountDisplay.text = "Incorrect: \(incorrectSwipes)"
+            totalPoints -= 100
+            pointsDisplay.text = "\(totalPoints)"
             fadeOutDirection()
             generateNextDirection()
         }
@@ -100,6 +102,7 @@ class GameViewController: UIViewController {
             defaults.setInteger(correctSwipes, forKey: "correctSwipes")
             defaults.setInteger(incorrectSwipes, forKey: "incorrectSwipes")
             defaults.setInteger(ratio, forKey: "ratio")
+            defaults.setInteger(totalPoints, forKey: "totalPoints")
         }
     }
     
