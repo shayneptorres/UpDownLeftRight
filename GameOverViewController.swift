@@ -15,25 +15,37 @@ class GameOverViewController: GameViewController {
     @IBOutlet weak var highScoreDisplay: UILabel!
     
     var finalPointsTotal: Int = 0
-    var finalCorrectCount: Float = 0
-    var finalIncorrectCount: Float = 0
-    var highScore = 0
+    var highscore = 0
+    var HighScoreDefaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
+        if HighScoreDefaults.valueForKey("highScore") != nil {
+            highscore = HighScoreDefaults.integerForKey("highScore")
+        } else {
+            HighScoreDefaults.setInteger(finalPointsTotal, forKey: "highScore")
+            highscore = HighScoreDefaults.integerForKey("highScore")
+        }
+        
         showResults()
     }
  
     func showResults() {
-
         finalPointsDisplay.hidden = false
         highScoreDisplay.hidden = false
-        finalCorrectCount = defaults.floatForKey("correctSwipes")
-        finalIncorrectCount = defaults.floatForKey("incorrectSwipes")
         finalPointsTotal = defaults.integerForKey("totalPoints")
         finalPointsDisplay.text = "\(finalPointsTotal)"
-        highScoreDisplay.text = "\(defaults.integerForKey("highScore"))"
+        checkHighScore()
+        highScoreDisplay.text = "\(highscore)"
     }
     
     @IBAction func resetGame(sender: UIButton) {
         performSegueWithIdentifier("Reset Game", sender: self)
+    }
+    
+    func checkHighScore(){
+        if finalPointsTotal > highscore {
+            highscore = finalPointsTotal
+            HighScoreDefaults.setInteger(highscore, forKey: "highScore")
+        }
     }
 }
