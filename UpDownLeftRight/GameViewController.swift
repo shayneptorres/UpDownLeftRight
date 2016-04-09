@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
     var totalPoints: Int = 0
     var correctStreak: Int = 0
     var multiplier: Int = 1
+    var gameHasStarted: Bool = false
     
     // Timers
     var startUpTimer = NSTimer()
@@ -40,9 +41,7 @@ class GameViewController: UIViewController {
     var leftObject = Direction(direction: "LEFT", imageName: "leftArrow")
     var rightObject = Direction(direction: "RIGHT", imageName: "rightArrow")
     
-    
-    
-    
+    // Defaults
     var defaults = NSUserDefaults.standardUserDefaults()
     
     // Swipe Recognizers
@@ -68,36 +67,42 @@ class GameViewController: UIViewController {
     
     // Swipe Handlers
     func handleSwipes(sender: UISwipeGestureRecognizer){
-        if sender.direction == .Up {
-            swipeDirection = "UP"
-        } else if sender.direction == .Down {
-            swipeDirection = "DOWN"
-        } else if sender.direction == .Left {
-            swipeDirection = "LEFT"
-        } else if sender.direction == .Right {
-            swipeDirection = "RIGHT"
+        if gameHasStarted {
+            if sender.direction == .Up {
+                swipeDirection = "UP"
+            } else if sender.direction == .Down {
+                swipeDirection = "DOWN"
+            } else if sender.direction == .Left {
+                swipeDirection = "LEFT"
+            } else if sender.direction == .Right {
+                swipeDirection = "RIGHT"
+            }
+            
+            if swipeDirection == directionDisplay.text {
+                correctSwipes++
+                correctStreak++
+                if correctStreak > 10 {
+                    totalPoints += 500
+                    multiplierDisplay.text = "Multiplier: x5"
+                }
+                totalPoints += 100
+                pointsDisplay.text = "\(totalPoints)"
+                fadeOutDirection()
+                generateNextDirection()
+            } else {
+                incorrectSwipes++
+                correctStreak = 0
+                multiplierDisplay.text = "Multiplier: x1"
+                totalPoints -= 100
+                pointsDisplay.text = "\(totalPoints)"
+                fadeOutDirection()
+                generateNextDirection()
+            }
+        } else {
+            
         }
         
-        if swipeDirection == directionDisplay.text {
-            correctSwipes++
-            correctStreak++
-            if correctStreak > 10 {
-                totalPoints += 500
-                multiplierDisplay.text = "Multiplier: x5"
-            }
-            totalPoints += 100
-            pointsDisplay.text = "\(totalPoints)"
-            fadeOutDirection()
-            generateNextDirection()
-        } else {
-            incorrectSwipes++
-            correctStreak = 0
-            multiplierDisplay.text = "Multiplier: x1"
-            totalPoints -= 100
-            pointsDisplay.text = "\(totalPoints)"
-            fadeOutDirection()
-            generateNextDirection()
-        }
+       
     }
     
     // Game Functions
@@ -106,11 +111,11 @@ class GameViewController: UIViewController {
     }
     
     func fadeOutDirection(){
-        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionDisplay.alpha = 0.0}, completion: nil)
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionImageDisplay.alpha = 0.0}, completion: nil)
     }
     
     func fadeInDirection(){
-        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionDisplay.alpha = 1.0}, completion: nil)
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionImageDisplay.alpha = 1.0}, completion: nil)
     }
     
     // Signals the next View
@@ -136,6 +141,7 @@ class GameViewController: UIViewController {
     }
     
     func startGame() {
+        gameHasStarted = true
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
         correctSwipes = 0
         incorrectSwipes = 0
