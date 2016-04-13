@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
     var correctStreak: Int = 0
     var multiplier: Int = 1
     var gameHasStarted: Bool = false
+    var currentMultiplier: Int = 1
     
     // Timers
     var startUpTimer = NSTimer()
@@ -81,28 +82,30 @@ class GameViewController: UIViewController {
             if swipeDirection == directionDisplay.text {
                 correctSwipes++
                 correctStreak++
-                if correctStreak > 10 {
-                    totalPoints += 500
-                    multiplierDisplay.text = "Multiplier: x5"
+                if correctStreak >= 10 {
+                    setNewMultiplier(5)
                 }
-                totalPoints += 100
-                pointsDisplay.text = "\(totalPoints)"
-                fadeOutDirection()
-                generateNextDirection()
+                
+                if correctStreak >= 25 {
+                    setNewMultiplier(10)
+                }
+                
+                if correctStreak >= 50 {
+                    setNewMultiplier(100)
+                }
+                totalPoints += 100 * currentMultiplier
             } else {
+                setNewMultiplier(1)
                 incorrectSwipes++
                 correctStreak = 0
-                multiplierDisplay.text = "Multiplier: x1"
                 totalPoints -= 100
-                pointsDisplay.text = "\(totalPoints)"
-                fadeOutDirection()
-                generateNextDirection()
             }
-        } else {
-            
+            fadeOutDirection()
+            generateNextDirection()
+            pointsDisplay.text = "\(totalPoints)"
+            multiplierDisplay.text = "Multiplier: x\(currentMultiplier)"
         }
         
-       
     }
     
     // Game Functions
@@ -116,6 +119,19 @@ class GameViewController: UIViewController {
     
     func fadeInDirection(){
         UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionImageDisplay.alpha = 1.0}, completion: nil)
+    }
+    
+    func setNewMultiplier(num: Int){
+        currentMultiplier = num
+    }
+    
+    func didNotSwipe(){
+        correctStreak = 0
+        totalPoints -= 100
+        setNewMultiplier(1)
+        fadeOutDirection()
+        pointsDisplay.text = "\(totalPoints)"
+        generateNextDirection()
     }
     
     // Signals the next View
@@ -142,12 +158,11 @@ class GameViewController: UIViewController {
     
     func startGame() {
         gameHasStarted = true
-        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
         correctSwipes = 0
         incorrectSwipes = 0
         generateNextDirection()
+        gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
     }
-    
     
     // Displays the next Swipe direction
     func generateNextDirection(){
@@ -156,25 +171,19 @@ class GameViewController: UIViewController {
         let randInt = String(arc4random_uniform(5))
         if randInt == "1" {
             currentDirection = upObject
-            directionDisplay.text = currentDirection.value
-            directionImageDisplay.image = currentDirection.image
         } else if randInt == "2" {
             currentDirection = downObject
-            directionDisplay.text = currentDirection.value
-            directionImageDisplay.image = currentDirection.image
         } else if randInt == "3" {
             currentDirection = leftObject
-            directionDisplay.text = currentDirection.value
-            directionImageDisplay.image = currentDirection.image
         } else if randInt == "4" {
             currentDirection = rightObject
-            directionDisplay.text = currentDirection.value
-            directionImageDisplay.image = currentDirection.image
         }
+        directionDisplay.text = currentDirection.value
+        directionImageDisplay.image = currentDirection.image
         miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
     }
     
-    // Timer for game startup
+    // Timer for game startup countdown
     func updateStartUpTimer(){
         startUpTimerCount--
         directionDisplay.text = "\(startUpTimerCount)"
@@ -184,12 +193,12 @@ class GameViewController: UIViewController {
         }
     }
     
-    // Timer for direction
+    // Timer for direction change
     func updateMiniTimer(){
         miniTimerCount++
         if miniTimerCount > 1 {
             miniTimer.invalidate()
-            generateNextDirection()
+            didNotSwipe()
         }
     }
     

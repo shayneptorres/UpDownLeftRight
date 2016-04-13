@@ -115,7 +115,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQV-Ln-xEv">
                                         <rect key="frame" x="214" y="8" width="95" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG1-4a-FOG">
@@ -126,13 +126,13 @@
 4.) You have 30 seconds to get as many points as possible
 </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Luck!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69U-dg-QOD">
                                         <rect key="frame" x="217" y="166" width="88" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrj-OU-Alw">
@@ -231,14 +231,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meX-jq-3NF">
                                 <rect key="frame" x="201" y="376" width="199" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-WM-ozn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6P-WM-ozn">
                                 <rect key="frame" x="208" y="295" width="183" height="73"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="dHA-Rv-xcC"/>
-                                    <constraint firstAttribute="width" constant="183" id="x1P-2q-bt2"/>
+                                    <constraint firstAttribute="height" constant="73" id="I8w-iY-BdF"/>
+                                    <constraint firstAttribute="width" constant="183" id="hmX-Ao-H1R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -257,7 +257,7 @@
                                     <constraint firstAttribute="width" constant="124" id="A7P-6n-4ro"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -265,8 +265,7 @@
                         <constraints>
                             <constraint firstItem="v0L-KP-xM8" firstAttribute="trailing" secondItem="Kmv-cd-xg5" secondAttribute="trailing" id="40d-pt-rRV"/>
                             <constraint firstAttribute="bottom" secondItem="i6k-MJ-rRJ" secondAttribute="bottom" constant="20" symbolic="YES" id="4c0-yT-WaD"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="JSM-K8-EX8" secondAttribute="bottom" constant="8" symbolic="YES" id="829-N6-S4l"/>
-                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" id="8Rx-ie-nOW"/>
+                            <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="JSM-K8-EX8" secondAttribute="bottom" constant="8" symbolic="YES" id="6p1-Nb-Tcp"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="centerX" secondItem="Kmv-cd-xg5" secondAttribute="centerX" id="DCF-WL-t98"/>
                             <constraint firstItem="i6k-MJ-rRJ" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="DZ9-bT-ayP"/>
                             <constraint firstItem="Kmv-cd-xg5" firstAttribute="centerX" secondItem="ixL-un-PC2" secondAttribute="centerX" id="IrZ-s4-3kx"/>
@@ -274,15 +273,15 @@
                             <constraint firstItem="meX-jq-3NF" firstAttribute="leading" secondItem="uYx-VC-H1C" secondAttribute="trailing" constant="-399" id="TJb-hc-Uce"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="leading" secondItem="ixL-un-PC2" secondAttribute="leading" id="XVg-HQ-xVw"/>
                             <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="96" id="YF5-Nb-uvn"/>
-                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" symbolic="YES" id="Z9K-Ld-3lm"/>
                             <constraint firstAttribute="trailing" secondItem="uYx-VC-H1C" secondAttribute="trailing" id="aWr-9V-cBS"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="top" secondItem="OSn-y5-k5w" secondAttribute="bottom" constant="58" id="b13-kB-1yx"/>
+                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="JSM-K8-EX8" secondAttribute="centerX" id="d2Q-xs-dXg"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="bottom" secondItem="R78-gL-wom" secondAttribute="top" id="huh-85-Uqi"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="hvb-Ye-jfA"/>
                             <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="v0L-KP-xM8" secondAttribute="bottom" constant="67" id="ieB-wj-Xsj"/>
                             <constraint firstItem="v0L-KP-xM8" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="8" symbolic="YES" id="k0W-9j-HJg"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="top" secondItem="ixL-un-PC2" secondAttribute="top" id="n1f-1d-MDV"/>
-                            <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="meX-jq-3NF" secondAttribute="centerX" id="xec-u5-ysu"/>
+                            <constraint firstItem="meX-jq-3NF" firstAttribute="top" secondItem="J6P-WM-ozn" secondAttribute="bottom" constant="8" symbolic="YES" id="rcz-1g-7PV"/>
                         </constraints>
                     </view>
                     <connections>
