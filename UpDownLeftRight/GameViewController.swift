@@ -6,6 +6,16 @@
 //  Copyright © 2016 Shayne Torres. All rights reserved.
 //
 
+
+
+//////////
+/*
+Implement Longest streak
+Add an "X" for no swipe
+implement double finger swipes
+*/
+//////////
+
 import UIKit
 
 class GameViewController: UIViewController {
@@ -29,6 +39,8 @@ class GameViewController: UIViewController {
     var multiplier: Int = 1
     var gameHasStarted: Bool = false
     var currentMultiplier: Int = 1
+    var longestStreak: Int = 0
+    var tempLongestStreak: Int = 0
     
     // Timers
     var startUpTimer = NSTimer()
@@ -80,6 +92,7 @@ class GameViewController: UIViewController {
             }
             
             if swipeDirection == directionDisplay.text {
+                tempLongestStreak++
                 correctSwipes++
                 correctStreak++
                 if correctStreak >= 10 {
@@ -95,6 +108,8 @@ class GameViewController: UIViewController {
                 }
                 totalPoints += 100 * currentMultiplier
             } else {
+                setLongestStreak()
+                tempLongestStreak = 0
                 setNewMultiplier(1)
                 incorrectSwipes++
                 correctStreak = 0
@@ -126,6 +141,8 @@ class GameViewController: UIViewController {
     }
     
     func didNotSwipe(){
+        setLongestStreak()
+        tempLongestStreak = 0
         correctStreak = 0
         totalPoints -= 100
         setNewMultiplier(1)
@@ -134,11 +151,18 @@ class GameViewController: UIViewController {
         generateNextDirection()
     }
     
+    func setLongestStreak(){
+        if tempLongestStreak > longestStreak {
+            longestStreak = tempLongestStreak
+        } 
+    }
+    
     // Signals the next View
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Game Over" {
             _ = segue.destinationViewController as? GameOverViewController
+            defaults.setInteger(longestStreak, forKey: "longestStreak")
             defaults.setInteger(correctSwipes, forKey: "correctSwipes")
             defaults.setInteger(incorrectSwipes, forKey: "incorrectSwipes")
             defaults.setInteger(totalPoints, forKey: "totalPoints")

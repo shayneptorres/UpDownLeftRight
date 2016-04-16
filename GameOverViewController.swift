@@ -13,6 +13,7 @@ class GameOverViewController: GameViewController {
     @IBOutlet weak var finalPointsLabel: UILabel!
     @IBOutlet weak var finalPointsDisplay: UILabel!
     @IBOutlet weak var highScoreDisplay: UILabel!
+    @IBOutlet weak var longestStreakDisplay: UILabel!
     
     var finalPointsTotal: Int = 0
     var highscore = 0
@@ -32,8 +33,11 @@ class GameOverViewController: GameViewController {
     func showResults() {
         finalPointsDisplay.hidden = false
         highScoreDisplay.hidden = false
+        longestStreakDisplay.hidden = false
+        let finalLongestStreak = defaults.integerForKey("longestStreak")
         finalPointsTotal = defaults.integerForKey("totalPoints")
         finalPointsDisplay.text = "\(finalPointsTotal)"
+        longestStreakDisplay.text = "\(finalLongestStreak)"
         checkHighScore()
         highScoreDisplay.text = "\(highscore)"
     }
