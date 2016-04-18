@@ -163,10 +163,13 @@
 2.) When the direction arrow appears on the top of the screen swipe in that direction
 3.) Correct swipes add points, incorrect swipes deduct points
 4.) You have 30 seconds to get as many points as possible
-</string>
+5.) Every time you get a streak of 25 swipes you are given 15 more seconds to play</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="11" y="64" width="303" height="302.5"/>
+                                        </variation>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQV-Ln-xEv">
                                         <rect key="frame" x="214" y="8" width="95" height="20.5"/>
@@ -454,9 +457,19 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 Seconds!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS7-YG-mPs">
+                                <rect key="frame" x="194" y="445" width="211" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="Gp3-z4-hcG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="yS7-YG-mPs" secondAttribute="bottom" constant="26" id="0Tn-mv-gQe"/>
                             <constraint firstItem="meX-jq-3NF" firstAttribute="centerX" secondItem="J6P-WM-ozn" secondAttribute="centerX" id="1ba-SD-WEP"/>
                             <constraint firstAttribute="bottom" secondItem="i6k-MJ-rRJ" secondAttribute="bottom" constant="20" symbolic="YES" id="4c0-yT-WaD"/>
                             <constraint firstItem="J6P-WM-ozn" firstAttribute="top" secondItem="JSM-K8-EX8" secondAttribute="bottom" constant="8" symbolic="YES" id="6p1-Nb-Tcp"/>
@@ -471,9 +484,11 @@
                             <constraint firstItem="meX-jq-3NF" firstAttribute="centerX" secondItem="JSM-K8-EX8" secondAttribute="centerX" id="W6w-38-2Nh"/>
                             <constraint firstItem="uYx-VC-H1C" firstAttribute="leading" secondItem="ixL-un-PC2" secondAttribute="leading" id="XVg-HQ-xVw"/>
                             <constraint firstItem="i6k-MJ-rRJ" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="96" id="YF5-Nb-uvn"/>
+                            <constraint firstItem="yS7-YG-mPs" firstAttribute="centerX" secondItem="J6P-WM-ozn" secondAttribute="centerX" id="Zlo-tE-Gat"/>
                             <constraint firstAttribute="trailing" secondItem="uYx-VC-H1C" secondAttribute="trailing" id="aWr-9V-cBS"/>
                             <constraint firstItem="v0L-KP-xM8" firstAttribute="top" secondItem="meX-jq-3NF" secondAttribute="bottom" constant="8" symbolic="YES" id="aYf-6D-mTx"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="top" secondItem="OSn-y5-k5w" secondAttribute="bottom" constant="58" id="b13-kB-1yx"/>
+                            <constraint firstItem="yS7-YG-mPs" firstAttribute="top" secondItem="v0L-KP-xM8" secondAttribute="bottom" constant="8" symbolic="YES" id="bnU-xW-4fg"/>
                             <constraint firstItem="JSM-K8-EX8" firstAttribute="top" secondItem="ixL-un-PC2" secondAttribute="top" constant="78" id="coa-vZ-cxP"/>
                             <constraint firstItem="J6P-WM-ozn" firstAttribute="centerX" secondItem="JSM-K8-EX8" secondAttribute="centerX" id="d2Q-xs-dXg"/>
                             <constraint firstItem="Kmv-cd-xg5" firstAttribute="centerX" secondItem="JSM-K8-EX8" secondAttribute="centerX" id="fBO-Pj-msT"/>
@@ -546,12 +561,13 @@
                         <outlet property="multiplierDisplay" destination="v0L-KP-xM8" id="kXq-pW-LOU"/>
                         <outlet property="pointsDisplay" destination="J6P-WM-ozn" id="iaP-GL-baM"/>
                         <outlet property="startGameButton" destination="i6k-MJ-rRJ" id="G62-Q5-kdH"/>
+                        <outlet property="timerAlertLabel" destination="yS7-YG-mPs" id="ans-bs-eBc"/>
                         <segue destination="kcA-5w-O34" kind="show" identifier="Game Over" id="Ylc-ip-iEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vtb-Om-igg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="260"/>
+            <point key="canvasLocation" x="963" y="240"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="maZ-Kn-OX0">
@@ -748,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nst-li-b5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="1166"/>
+            <point key="canvasLocation" x="963" y="1166"/>
         </scene>
     </scenes>
     <resources>

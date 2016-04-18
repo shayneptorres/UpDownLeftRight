@@ -10,7 +10,6 @@
 
 //////////
 /*
-Implement Longest streak
 Add an "X" for no swipe
 implement double finger swipes
 */
@@ -26,6 +25,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var directionImageDisplay: UIImageView!
     @IBOutlet weak var multiplierDisplay: UILabel!
+    @IBOutlet weak var timerAlertLabel: UILabel!
+    
     
     // Variables
     var swipeDirection: String = ""
@@ -41,11 +42,14 @@ class GameViewController: UIViewController {
     var currentMultiplier: Int = 1
     var longestStreak: Int = 0
     var tempLongestStreak: Int = 0
+    var timerIncreaseStreakCount: Int = 0
+    var timerAlertLabelClock: Int = 0
     
     // Timers
     var startUpTimer = NSTimer()
     var miniTimer = NSTimer()
     var gameTimer = NSTimer()
+    var timerAlertTimer = NSTimer()
     
     // Direction Objects
     var currentDirection = Direction()
@@ -91,7 +95,7 @@ class GameViewController: UIViewController {
                 swipeDirection = "RIGHT"
             }
             
-            if swipeDirection == directionDisplay.text {
+            if swipeDirection == currentDirection.value {
                 tempLongestStreak++
                 correctSwipes++
                 correctStreak++
@@ -106,10 +110,13 @@ class GameViewController: UIViewController {
                 if correctStreak >= 50 {
                     setNewMultiplier(100)
                 }
+                timerIncreaseStreakCount++
                 totalPoints += 100 * currentMultiplier
+                increaseTimerCheck()
             } else {
                 setLongestStreak()
                 tempLongestStreak = 0
+                timerIncreaseStreakCount = 0
                 setNewMultiplier(1)
                 incorrectSwipes++
                 correctStreak = 0
@@ -128,6 +135,8 @@ class GameViewController: UIViewController {
         goToNextView()
     }
     
+    // Fade in/out animations
+    
     func fadeOutDirection(){
         UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionImageDisplay.alpha = 0.0}, completion: nil)
     }
@@ -135,6 +144,17 @@ class GameViewController: UIViewController {
     func fadeInDirection(){
         UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.directionImageDisplay.alpha = 1.0}, completion: nil)
     }
+    
+    func fadeOutTimer(){
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.gameClock.alpha = 0.0}, completion: nil)
+    }
+    
+    func fadeInTimer(){
+        UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.gameClock.alpha = 1.0}, completion: nil)
+    }
+    
+    ///
+    
     
     func setNewMultiplier(num: Int){
         currentMultiplier = num
@@ -155,6 +175,18 @@ class GameViewController: UIViewController {
         if tempLongestStreak > longestStreak {
             longestStreak = tempLongestStreak
         } 
+    }
+    
+    func increaseTimerCheck(){
+        if timerIncreaseStreakCount > 24 {
+            fadeOutTimer()
+            gameTimerCount += 15
+            timerAlertTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showAlertTimerDisplay", userInfo: nil, repeats: true)
+            fadeInTimer()
+            timerAlertLabel.hidden = false
+            timerAlertLabelClock = 0
+            timerIncreaseStreakCount = 0
+        }
     }
     
     // Signals the next View
@@ -207,6 +239,8 @@ class GameViewController: UIViewController {
         miniTimer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "updateMiniTimer", userInfo: nil, repeats: true)
     }
     
+    //////////////////////// Timer Functions //////////////////////////////////
+    
     // Timer for game startup countdown
     func updateStartUpTimer(){
         startUpTimerCount--
@@ -214,6 +248,17 @@ class GameViewController: UIViewController {
         if startUpTimerCount == 0 {
             startUpTimer.invalidate()
             startGame()
+        }
+    }
+    
+    // Timer for the timer alert display
+    func showAlertTimerDisplay(){
+        timerAlertLabelClock++
+        timerAlertLabel.text = "+10 seconds"
+        if timerAlertLabelClock > 1 {
+            timerAlertTimer.invalidate()
+            timerAlertLabelClock = 0
+            timerAlertLabel.hidden = true
         }
     }
     
