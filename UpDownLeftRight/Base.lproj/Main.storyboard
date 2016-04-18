@@ -22,16 +22,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pGradient3-1" translatesAutoresizingMaskIntoConstraints="NO" id="NHN-CC-hDC">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Up-Down" translatesAutoresizingMaskIntoConstraints="NO" id="7jm-QQ-Dao">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Up-Down" translatesAutoresizingMaskIntoConstraints="NO" id="7jm-QQ-Dao">
                                 <rect key="frame" x="150" y="20" width="300" height="119"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="isE-MS-p0l"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left-Right" translatesAutoresizingMaskIntoConstraints="NO" id="gUm-7o-uYs">
-                                <rect key="frame" x="180" y="129" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="VHc-OE-xIR"/>
+                                    <constraint firstAttribute="width" secondItem="7jm-QQ-Dao" secondAttribute="height" multiplier="300:119" id="8Dw-BH-MRd"/>
+                                    <constraint firstAttribute="width" constant="300" id="CUi-Xe-DiX"/>
+                                    <constraint firstAttribute="height" constant="119" id="zv8-6d-CV2"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipx-Wz-8Cq">
@@ -62,21 +58,26 @@
                                     <segue destination="ZmN-pp-cio" kind="show" identifier="Show Instructions" id="6qN-Jr-1K6"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left-Right" translatesAutoresizingMaskIntoConstraints="NO" id="gUm-7o-uYs">
+                                <rect key="frame" x="180" y="129" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="E7a-0R-NjK"/>
+                                    <constraint firstAttribute="height" constant="128" id="Tzp-9V-ZYI"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gUm-7o-uYs" firstAttribute="centerX" secondItem="NHN-CC-hDC" secondAttribute="centerX" id="BeI-MP-vlR"/>
-                            <constraint firstItem="gUm-7o-uYs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="109" id="Hxa-HM-3us"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7jm-QQ-Dao" secondAttribute="bottom" constant="461" id="MqA-Q9-9Tg"/>
+                            <constraint firstItem="gUm-7o-uYs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="109" id="KPp-7x-PM1"/>
                             <constraint firstItem="j9h-cO-pMv" firstAttribute="centerX" secondItem="NHN-CC-hDC" secondAttribute="centerX" id="Njv-s8-XJP"/>
-                            <constraint firstItem="7jm-QQ-Dao" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Rmi-wV-CK2"/>
-                            <constraint firstItem="gUm-7o-uYs" firstAttribute="centerX" secondItem="7jm-QQ-Dao" secondAttribute="centerX" id="T43-OS-aWI"/>
                             <constraint firstItem="NHN-CC-hDC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="TsO-VD-3zl"/>
                             <constraint firstAttribute="trailing" secondItem="NHN-CC-hDC" secondAttribute="trailing" id="Un7-74-Nvd"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gUm-7o-uYs" secondAttribute="bottom" constant="343" id="YkO-LV-u5m"/>
                             <constraint firstItem="ipx-Wz-8Cq" firstAttribute="centerX" secondItem="NHN-CC-hDC" secondAttribute="centerX" id="bRj-j1-Zaw"/>
                             <constraint firstItem="NHN-CC-hDC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gLW-Tj-a3e"/>
+                            <constraint firstItem="7jm-QQ-Dao" firstAttribute="centerX" secondItem="gUm-7o-uYs" secondAttribute="centerX" id="k9D-Sz-dZK"/>
                             <constraint firstItem="j9h-cO-pMv" firstAttribute="top" secondItem="NHN-CC-hDC" secondAttribute="bottom" constant="-94" id="mYX-dE-A4g"/>
+                            <constraint firstItem="7jm-QQ-Dao" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ojU-6s-xQU"/>
+                            <constraint firstItem="7jm-QQ-Dao" firstAttribute="centerX" secondItem="ipx-Wz-8Cq" secondAttribute="centerX" id="taY-2t-pSc"/>
                             <constraint firstItem="NHN-CC-hDC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vim-65-Auk"/>
                             <constraint firstItem="j9h-cO-pMv" firstAttribute="top" secondItem="ipx-Wz-8Cq" secondAttribute="bottom" constant="8" id="yfN-ow-M8Z"/>
                         </constraints>
