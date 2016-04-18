@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="96" id="E8r-il-wNc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Play" backgroundImage="blueButton">
+                                <state key="normal" title="Play" backgroundImage="newbtn1 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="width" constant="229" id="6hL-PX-YhA"/>
                                     <constraint firstAttribute="height" constant="74" id="hY1-Vg-e3p"/>
                                 </constraints>
-                                <state key="normal" title="Instructions" backgroundImage="blueButton">
+                                <state key="normal" title="Instructions" backgroundImage="newbtn1 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -141,7 +141,7 @@
                                             <constraint firstAttribute="height" constant="96" id="JCu-dX-PNX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Play" backgroundImage="blueButton">
+                                        <state key="normal" title="Play" backgroundImage="newbtn1 2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -221,7 +221,7 @@
                                     <constraint firstAttribute="height" constant="76" id="Ty0-TO-1G0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Start Game" backgroundImage="blueButton">
+                                <state key="normal" title="Start Game" backgroundImage="newbtn1 2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -244,13 +244,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sq1" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-K8-EX8">
-                                <rect key="frame" x="172" y="78" width="256" height="209"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="I5j-tR-DZg"/>
-                                    <constraint firstAttribute="height" constant="209" id="gKl-rY-E0A"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiplier:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0L-KP-xM8">
                                 <rect key="frame" x="249" y="416" width="124" height="21"/>
                                 <constraints>
@@ -260,6 +253,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newSpaceKeeper 2" translatesAutoresizingMaskIntoConstraints="NO" id="JSM-K8-EX8">
+                                <rect key="frame" x="172" y="78" width="256" height="209"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="I5j-tR-DZg"/>
+                                    <constraint firstAttribute="height" constant="209" id="gKl-rY-E0A"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -314,28 +314,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrU-yt-AC1">
-                                <rect key="frame" x="175" y="508" width="251" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="KyO-hn-vJ8"/>
-                                    <constraint firstAttribute="height" constant="72" id="Xfu-hU-00U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Reset Game" backgroundImage="blueButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetGame:" destination="kcA-5w-O34" eventType="touchUpInside" id="Str-Pr-srE"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Reset Game" id="ZZx-Qr-TDb"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Game-Over" translatesAutoresizingMaskIntoConstraints="NO" id="pdp-mv-lsR">
                                 <rect key="frame" x="40" y="20" width="521" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="En4-1S-eCI"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sqr1" translatesAutoresizingMaskIntoConstraints="NO" id="WYi-Bw-WIq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newSpaceKeeper 2" translatesAutoresizingMaskIntoConstraints="NO" id="WYi-Bw-WIq">
                                 <rect key="frame" x="71" y="125" width="459" height="312"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WYi-Bw-WIq" secondAttribute="height" multiplier="487:331" id="Bw6-H5-ug1"/>
@@ -350,7 +335,7 @@
                                     <constraint firstAttribute="height" constant="21" id="qyh-Ka-Y3T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -364,7 +349,7 @@
                                     <constraint firstAttribute="width" constant="127" id="gnc-ax-FEQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -382,7 +367,7 @@
                                     <constraint firstAttribute="height" constant="21" id="qxO-U1-v7g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -399,7 +384,7 @@
                                     <constraint firstAttribute="width" constant="127" id="4kV-2J-hef"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -413,7 +398,7 @@
                                     <constraint firstAttribute="height" constant="41" id="Inq-1k-ZL1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longest Streak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3U-FP-SHa">
@@ -422,9 +407,24 @@
                                     <constraint firstAttribute="height" constant="41" id="BFJ-Ut-q77"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrU-yt-AC1">
+                                <rect key="frame" x="175" y="508" width="251" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="251" id="KyO-hn-vJ8"/>
+                                    <constraint firstAttribute="height" constant="72" id="Xfu-hU-00U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Reset Game" backgroundImage="newbtn1 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetGame:" destination="kcA-5w-O34" eventType="touchUpInside" id="Str-Pr-srE"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Reset Game" id="ZZx-Qr-TDb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -473,10 +473,9 @@
         <image name="Instructions" width="656" height="93"/>
         <image name="Left-Right" width="549" height="102"/>
         <image name="Up-Down" width="469" height="102"/>
-        <image name="blueButton" width="542" height="224"/>
+        <image name="newSpaceKeeper 2" width="285" height="285"/>
+        <image name="newbtn1 2" width="305" height="82"/>
         <image name="pGradient3-1" width="908" height="2286"/>
-        <image name="sq1" width="418" height="360"/>
-        <image name="sqr1" width="314" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="B7W-KB-AKh"/>
