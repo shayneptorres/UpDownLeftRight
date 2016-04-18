@@ -15,7 +15,7 @@ class Direction {
     
     init(){
         self.value = ""
-        self.image = UIImage(named: "sq3")!
+        self.image = UIImage(named: "newSpaceKeeper")!
     }
     
     init(direction: String, imageName: String){

@@ -182,9 +182,9 @@ class GameViewController: UIViewController {
     
     func startGame() {
         gameHasStarted = true
+        generateNextDirection()
         correctSwipes = 0
         incorrectSwipes = 0
-        generateNextDirection()
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateGameTimer", userInfo: nil, repeats: true)
     }
     
@@ -199,7 +199,7 @@ class GameViewController: UIViewController {
             currentDirection = downObject
         } else if randInt == "3" {
             currentDirection = leftObject
-        } else if randInt == "4" {
+        } else {
             currentDirection = rightObject
         }
         directionDisplay.text = currentDirection.value
