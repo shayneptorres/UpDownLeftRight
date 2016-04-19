@@ -18,6 +18,7 @@ class GameOverViewController: GameViewController {
     var finalPointsTotal: Int = 0
     var highscore = 0
     var HighScoreDefaults = NSUserDefaults.standardUserDefaults()
+    var nf2 = NSNumberFormatter()
     
     override func viewDidLoad() {
         if HighScoreDefaults.valueForKey("highScore") != nil {
@@ -31,15 +32,16 @@ class GameOverViewController: GameViewController {
     }
  
     func showResults() {
+        nf2.numberStyle = NSNumberFormatterStyle.DecimalStyle
         finalPointsDisplay.hidden = false
         highScoreDisplay.hidden = false
         longestStreakDisplay.hidden = false
         let finalLongestStreak = defaults.integerForKey("longestStreak")
         finalPointsTotal = defaults.integerForKey("totalPoints")
-        finalPointsDisplay.text = "\(finalPointsTotal)"
+        finalPointsDisplay.text = "\(nf2.stringFromNumber(defaults.integerForKey("totalPoints"))!)"
         longestStreakDisplay.text = "\(finalLongestStreak)"
         checkHighScore()
-        highScoreDisplay.text = "\(highscore)"
+        highScoreDisplay.text = "\(nf2.stringFromNumber(highscore)!)"
     }
     
     @IBAction func resetGame(sender: UIButton) {

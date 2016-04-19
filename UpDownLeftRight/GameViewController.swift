@@ -45,6 +45,10 @@ class GameViewController: UIViewController {
     var timerIncreaseStreakCount: Int = 0
     var timerAlertLabelClock: Int = 0
     
+    // Number Formatter
+    var numberFormatter = NSNumberFormatter()
+    
+    
     // Timers
     var startUpTimer = NSTimer()
     var miniTimer = NSTimer()
@@ -64,6 +68,7 @@ class GameViewController: UIViewController {
     // Swipe Recognizers
     override func viewDidLoad(){
         super.viewDidLoad()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         multiplierDisplay.text = "Multiplier: x1"
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         leftSwipe.direction = .Left
@@ -110,6 +115,10 @@ class GameViewController: UIViewController {
                 if correctStreak >= 50 {
                     setNewMultiplier(100)
                 }
+                
+                if correctStreak >= 100 {
+                    setNewMultiplier(1000)
+                }
                 timerIncreaseStreakCount++
                 totalPoints += 100 * currentMultiplier
                 increaseTimerCheck()
@@ -124,7 +133,7 @@ class GameViewController: UIViewController {
             }
             fadeOutDirection()
             generateNextDirection()
-            pointsDisplay.text = "\(totalPoints)"
+            pointsDisplay.text = "\(numberFormatter.stringFromNumber(totalPoints)!)"
             multiplierDisplay.text = "Multiplier: x\(currentMultiplier)"
         }
         
@@ -133,6 +142,40 @@ class GameViewController: UIViewController {
     // Game Functions
     func gameOver(){
         goToNextView()
+    }
+    
+    func setNewMultiplier(num: Int){
+        currentMultiplier = num
+    }
+    
+    func didNotSwipe(){
+        setLongestStreak()
+        tempLongestStreak = 0
+        correctStreak = 0
+        totalPoints -= 100
+        setNewMultiplier(1)
+        fadeOutDirection()
+        pointsDisplay.text = "\(numberFormatter.stringFromNumber(totalPoints)!)"
+        timerIncreaseStreakCount = 0
+        generateNextDirection()
+    }
+    
+    func setLongestStreak(){
+        if tempLongestStreak > longestStreak {
+            longestStreak = tempLongestStreak
+        } 
+    }
+    
+    func increaseTimerCheck(){
+        if timerIncreaseStreakCount > 24 {
+            fadeOutTimer()
+            gameTimerCount += 12
+            timerAlertTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showAlertTimerDisplay", userInfo: nil, repeats: true)
+            fadeInTimer()
+            timerAlertLabel.hidden = false
+            timerAlertLabelClock = 0
+            timerIncreaseStreakCount = 0
+        }
     }
     
     // Fade in/out animations
@@ -153,44 +196,7 @@ class GameViewController: UIViewController {
         UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseIn, animations: {self.gameClock.alpha = 1.0}, completion: nil)
     }
     
-    ///
-    
-    
-    func setNewMultiplier(num: Int){
-        currentMultiplier = num
-    }
-    
-    func didNotSwipe(){
-        setLongestStreak()
-        tempLongestStreak = 0
-        correctStreak = 0
-        totalPoints -= 100
-        setNewMultiplier(1)
-        fadeOutDirection()
-        pointsDisplay.text = "\(totalPoints)"
-        generateNextDirection()
-    }
-    
-    func setLongestStreak(){
-        if tempLongestStreak > longestStreak {
-            longestStreak = tempLongestStreak
-        } 
-    }
-    
-    func increaseTimerCheck(){
-        if timerIncreaseStreakCount > 24 {
-            fadeOutTimer()
-            gameTimerCount += 15
-            timerAlertTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showAlertTimerDisplay", userInfo: nil, repeats: true)
-            fadeInTimer()
-            timerAlertLabel.hidden = false
-            timerAlertLabelClock = 0
-            timerIncreaseStreakCount = 0
-        }
-    }
-    
     // Signals the next View
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Game Over" {
             _ = segue.destinationViewController as? GameOverViewController
@@ -254,7 +260,7 @@ class GameViewController: UIViewController {
     // Timer for the timer alert display
     func showAlertTimerDisplay(){
         timerAlertLabelClock++
-        timerAlertLabel.text = "+10 seconds"
+        timerAlertLabel.text = "+12 seconds"
         if timerAlertLabelClock > 1 {
             timerAlertTimer.invalidate()
             timerAlertLabelClock = 0

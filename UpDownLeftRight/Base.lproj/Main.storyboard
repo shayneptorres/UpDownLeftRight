@@ -163,7 +163,7 @@
 2.) When the direction arrow appears on the top of the screen swipe in that direction
 3.) Correct swipes add points, incorrect swipes deduct points
 4.) You have 30 seconds to get as many points as possible
-5.) Every time you get a streak of 25 swipes you are given 15 more seconds to play</string>
+5.) Every time you get a streak of 25 swipes you are given 12 more seconds to play</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -457,7 +457,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 Seconds!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS7-YG-mPs">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+12 Seconds!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS7-YG-mPs">
                                 <rect key="frame" x="194" y="445" width="211" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="211" id="Gp3-z4-hcG"/>
@@ -465,6 +465,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="94" y="362" width="211" height="116"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
